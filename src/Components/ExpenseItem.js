@@ -4,7 +4,7 @@ import DateItem from "./DateItem";
 const ExpenseItem = ({ title, price, date }) => {
   return (
     <div className="expense-item">
-      <DateItem />
+      <DateItem date={date} />
       <div className="expense-item__description">
         <h2>{title}</h2>
         <div className="expense-item__price">$ {price}</div>
