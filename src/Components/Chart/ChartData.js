@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "./Chart";
 
-const ChartData = () => {
+const ChartData = ({ expensesData }) => {
   const data = [
     { month: "Jan", value: 0 },
     { month: "Feb", value: 0 },
@@ -16,6 +16,15 @@ const ChartData = () => {
     { month: "Nov", value: 0 },
     { month: "Dec", value: 0 },
   ];
+  for (const expense of expensesData) {
+    data[expense.date.getMonth()].value += expense.price;
+  }
+  const values = data.map((item) => item.value);
+  const max = Math.max(...values);
+  const total = values.reduce((a, b) => {
+    return a + b;
+  });
+  console.log(total);
   return <Chart data={data} />;
 };
 
