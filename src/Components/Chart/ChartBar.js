@@ -1,12 +1,12 @@
-import React from "react";
+import "./ChartBar.css";
 
-const ChartBar = () => {
+const ChartBar = ({ month, value }) => {
   return (
-    <div>
-      <div>
-        <div></div>
+    <div className="chart-bar">
+      <div className="chart-bar__inner">
+        <div className="chart-bar__fill"></div>
       </div>
-      <p>label</p>
+      <p className="chart-bar__label">{month}</p>
     </div>
   );
 };

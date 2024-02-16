@@ -1,21 +1,12 @@
-import React from "react";
+import "./Chart.css";
 import ChartBar from "./ChartBar";
 
-const Chart = () => {
+const Chart = ({ data }) => {
   return (
-    <div>
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
+    <div className="chart">
+      {data.map((item) => {
+        return <ChartBar month={item.month} value={item.value} />;
+      })}
     </div>
   );
 };
