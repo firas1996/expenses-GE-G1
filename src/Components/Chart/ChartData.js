@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from "./Chart";
+import ChartBar from "./ChartBar";
 
 const ChartData = ({ expensesData }) => {
   const data = [
@@ -25,7 +26,7 @@ const ChartData = ({ expensesData }) => {
     return a + b;
   });
   console.log(total);
-  return <Chart data={data} />;
+  return <Chart data={data} max={max} total={total} />;
 };
 
 export default ChartData;
