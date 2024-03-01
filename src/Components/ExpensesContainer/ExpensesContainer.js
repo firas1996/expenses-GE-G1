@@ -1,8 +1,8 @@
 import "./ExpensesContainer.css";
 import ExpenseItem from "./ExpenseItem";
-import ChartData from "./Chart/ChartData";
 import ExpensesFilter from "./ExpensesFilter";
 import { useState } from "react";
+import ChartData from "./Chart/ChartData";
 
 const ExpensesContainer = ({ expensesData }) => {
   const years = [
