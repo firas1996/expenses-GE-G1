@@ -25,6 +25,7 @@ const ExpensesContainer = ({ expensesData }) => {
             title={expense.title}
             price={expense.price}
             date={expense.date}
+            key={expense.id}
           />
         );
       })}

@@ -11,6 +11,7 @@ const Chart = ({ data, max, total }) => {
             value={item.value}
             max={max}
             total={total}
+            key={item.month}
           />
         );
       })}

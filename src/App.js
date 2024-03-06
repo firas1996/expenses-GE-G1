@@ -33,7 +33,6 @@ function App() {
   const getData = (x) => {
     setUpdate([x, ...update]);
   };
-  console.log(update);
   return (
     <div>
       <NewExpense getData={getData} />

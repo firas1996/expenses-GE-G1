@@ -55,10 +55,13 @@ const NewExpense = ({ getData }) => {
     // setDate("");
   };
   const [openForm, setOpenForm] = useState(true);
+  const handelForm = () => {
+    setOpenForm(!openForm);
+  };
   return (
     <div className="new-expense">
       {openForm ? (
-        <button>Add New Expense</button>
+        <button onClick={handelForm}>Add New Expense</button>
       ) : (
         <form onSubmit={submitForm}>
           <div className="new-expense__controls">
@@ -98,7 +101,9 @@ const NewExpense = ({ getData }) => {
             </div>
           </div>
           <div className="new-expense__actions">
-            <button>Cancel</button>
+            <button onClick={handelForm} type="button">
+              Cancel
+            </button>
             <button type="submit">Add Expense</button>
           </div>
         </form>
