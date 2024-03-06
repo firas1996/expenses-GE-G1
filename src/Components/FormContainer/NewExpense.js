@@ -54,50 +54,55 @@ const NewExpense = ({ getData }) => {
     // setPrice("");
     // setDate("");
   };
+  const [openForm, setOpenForm] = useState(true);
   return (
     <div className="new-expense">
-      <form onSubmit={submitForm}>
-        <div className="new-expense__controls">
-          <div className="new-expense__control">
-            <label>Title</label>
-            <input
-              required
-              placeholder="Title"
-              name="title"
-              value={oneState.title}
-              onChange={inputChanger}
-            />
+      {openForm ? (
+        <button>Add New Expense</button>
+      ) : (
+        <form onSubmit={submitForm}>
+          <div className="new-expense__controls">
+            <div className="new-expense__control">
+              <label>Title</label>
+              <input
+                required
+                placeholder="Title"
+                name="title"
+                value={oneState.title}
+                onChange={inputChanger}
+              />
+            </div>
+            <div className="new-expense__control">
+              <label>Price</label>
+              <input
+                required
+                placeholder="Price"
+                type="number"
+                min="0"
+                name="price"
+                value={oneState.price}
+                onChange={inputChanger}
+              />
+            </div>
+            <div className="new-expense__control">
+              <label>Date</label>
+              <input
+                value={oneState.date}
+                onChange={inputChanger}
+                required
+                type="date"
+                name="date"
+                min="2022-01-01"
+                max="2025-12-31"
+              />
+            </div>
           </div>
-          <div className="new-expense__control">
-            <label>Price</label>
-            <input
-              required
-              placeholder="Price"
-              type="number"
-              min="0"
-              name="price"
-              value={oneState.price}
-              onChange={inputChanger}
-            />
+          <div className="new-expense__actions">
+            <button>Cancel</button>
+            <button type="submit">Add Expense</button>
           </div>
-          <div className="new-expense__control">
-            <label>Date</label>
-            <input
-              value={oneState.date}
-              onChange={inputChanger}
-              required
-              type="date"
-              name="date"
-              min="2022-01-01"
-              max="2025-12-31"
-            />
-          </div>
-        </div>
-        <div className="new-expense__actions">
-          <button>Cancel</button>
-          <button type="submit">Add Expense</button>
-        </div>
-      </form>
+        </form>
+      )}
     </div>
   );
 };
