@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./NewExpense.css";
 
-const NewExpense = () => {
+let id = 5;
+const NewExpense = ({ getData }) => {
   // const [title, setTitle] = useState("");
   // const [price, setPrice] = useState("");
   // const [date, setDate] = useState("");
@@ -34,7 +35,13 @@ const NewExpense = () => {
 
   const submitForm = (event) => {
     event.preventDefault();
-    console.log(oneState);
+    getData({
+      title: oneState.title,
+      price: +oneState.price,
+      date: new Date(oneState.date),
+      id: id,
+    });
+    id++;
     setOneState({
       title: "",
       price: "",

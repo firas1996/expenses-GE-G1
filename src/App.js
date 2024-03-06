@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ExpensesContainer from "./Components/ExpensesContainer/ExpensesContainer";
 import NewExpense from "./Components/FormContainer/NewExpense";
 
@@ -28,10 +29,15 @@ function App() {
       date: new Date(2025, 3, 10),
     },
   ];
+  const [update, setUpdate] = useState(expensesData);
+  const getData = (x) => {
+    setUpdate([x, ...update]);
+  };
+  console.log(update);
   return (
     <div>
-      <NewExpense />
-      <ExpensesContainer expensesData={expensesData} />
+      <NewExpense getData={getData} />
+      <ExpensesContainer expensesData={update} />
     </div>
   );
 }
