@@ -26,8 +26,9 @@ const NewExpense = () => {
     setOneState({ ...oneState, date: event.target.value });
   };
   const inputChanger = (event) => {
+    // const { name, value } = target;
     setOneState((prevState) => {
-      return { ...prevState, title: event.target.value };
+      return { ...prevState, [event.target.name]: event.target.value };
     });
   };
 
@@ -55,8 +56,9 @@ const NewExpense = () => {
             <input
               required
               placeholder="Title"
+              name="title"
               value={oneState.title}
-              onChange={titleChangeHandler}
+              onChange={inputChanger}
             />
           </div>
           <div className="new-expense__control">
@@ -66,17 +68,19 @@ const NewExpense = () => {
               placeholder="Price"
               type="number"
               min="0"
+              name="price"
               value={oneState.price}
-              onChange={priceChangeHandler}
+              onChange={inputChanger}
             />
           </div>
           <div className="new-expense__control">
             <label>Date</label>
             <input
               value={oneState.date}
-              onChange={dateChangeHandler}
+              onChange={inputChanger}
               required
               type="date"
+              name="date"
               min="2022-01-01"
               max="2025-12-31"
             />
